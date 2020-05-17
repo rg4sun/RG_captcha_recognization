@@ -6,8 +6,8 @@ import matplotlib
 import matplotlib.pyplot as plt 
 
 ROOT_DIR = os.getcwd()
-DATA_DTR = os.path.join(ROOT_DIR, 'test')
-CHARACTER_DIR = os.path.join(ROOT_DIR, 'characterssssss')
+DATA_DTR = os.path.join(ROOT_DIR, 'captcha_test_data')
+CHARACTER_DIR = os.path.join(ROOT_DIR, 'character_test_data')
 
 # 为了方便图片直接显示在jupyter中，cv的imshow不能直接在jupyter中显示
 # 为了用matplotlib显示（ 不能用plt.show()，要用plt.imshow() ）
@@ -108,4 +108,4 @@ def captcha_character_detach(captcha_img_path, characters_save_path='./', captch
 captchas = [ os.path.join(DATA_DTR, img_name) for img_name in os.listdir(DATA_DTR)] 
 captchas.sort() # 升序，注意不能 listA = listA.sort(), sort没有返回值
 for captcha in captchas:
-    captcha_character_detach(captcha, CHARACTER_DIR, captcha_len=10)
+    captcha_character_detach(captcha, CHARACTER_DIR, captcha_len=4)
