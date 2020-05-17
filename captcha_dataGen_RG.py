@@ -111,5 +111,9 @@ def captcha_generator(character_set:str, font_set=None, save_path='./', size=(15
     return captcha_text
 
 amount = int(input('captcha amount= '))
+# for i in range(amount): #  如果一个验证码随机的时候重复出现了，那么只会被保存一次
+#     captcha_generator(character_set_digit, captcha_len=4, font_set=FONT[0], save_path=DATA_DIR)
+
+# 生成测试集，就是随机挑选字体生成的四位数验证码
 for i in range(amount): #  如果一个验证码随机的时候重复出现了，那么只会被保存一次
-    captcha_generator(character_set_digit, captcha_len=4, font_set=FONT[0], save_path=DATA_DIR)
+    captcha_generator(character_set_digit, captcha_len=4, font_set=random.choice(FONT), save_path='captcha_test_data')
