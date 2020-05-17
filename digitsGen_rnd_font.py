@@ -15,16 +15,16 @@ FONTS = [r'/System/Library/Fonts/Avenir Next.ttc',
         '/System/Library/Fonts/NewYork.ttf',
         '/System/Library/Fonts/NewYorkItalic.ttf',
         '/System/Library/Fonts/SFCompactDisplay.ttf',
-        '/System/Library/Fonts/SFCompactTextItalic.ttf',
-        '/System/Library/Fonts/Symbol.ttf',
         '/System/Library/Fonts/ArialHB.ttc',
+        '/System/Library/Fonts/Symbol.ttf',
+        '/System/Library/Fonts/AquaKana.ttc',
+        '/System/Library/Fonts/SFCompactTextItalic.ttf',
         r'/System/Library/Fonts/Avenir Next Condensed.ttc',
         '/System/Library/Fonts/Avenir.ttc',
         '/System/Library/Fonts/Kohinoor.ttc',
         '/System/Library/Fonts/Menlo.ttc',
         '/System/Library/Fonts/Noteworthy.ttc',
         '/System/Library/Fonts/Thonburi.ttc',
-        r'/System/Library/Fonts/ヒラギノ角ゴシック W0.ttc',
         r'/System/Library/Fonts/ヒラギノ角ゴシック W1.ttc',
         r'/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc',
         r'/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc',
@@ -103,6 +103,7 @@ def captcha_generator(character_set:str, font_set=None, save_path='./', size=(15
         else: # 不存在重名路径，则跳出
             break
     captcha_img.save(captcha_save_path, 'png')
+    print('{}\n{}'.format(captcha_save_path, font_set))
     print('Captcha {} generated!'.format(captcha_text))
     return captcha_text
 
@@ -111,7 +112,8 @@ for font in FONTS:
     size=(350, 80), captcha_len=10,style=((255, 0, 0), (255, 255, 255), 40, False, (32,127))
     )
 
-# f = '/System/Library/Fonts/NotoSansArmenian.ttc'
-# captcha_generator('0123456789', font_set=f, save_path='./', 
+# i = int(input('i= '))
+# f = FONTS[i]
+# captcha_generator('0123456789', font_set=f, save_path='./digits_img', 
 #     size=(350, 80), captcha_len=10,style=((255, 0, 0), (255, 255, 255), 40, False, (32,127))
 #     )
