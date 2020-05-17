@@ -24,7 +24,6 @@ FONTS = [r'/System/Library/Fonts/Avenir Next.ttc',
         '/System/Library/Fonts/Kohinoor.ttc',
         '/System/Library/Fonts/Menlo.ttc',
         '/System/Library/Fonts/Noteworthy.ttc',
-        '/System/Library/Fonts/NotoSansArmenian.ttc',
         '/System/Library/Fonts/Thonburi.ttc',
         r'/System/Library/Fonts/ヒラギノ角ゴシック W0.ttc',
         r'/System/Library/Fonts/ヒラギノ角ゴシック W1.ttc',
@@ -96,7 +95,7 @@ def captcha_generator(character_set:str, font_set=None, save_path='./', size=(15
     captcha_img = draw_text(background_img, captcha_text, font=my_font, fill=style[0])
     if not os.path.exists(save_path):
         os.makedirs(save_path)
-    captcha_save_path = os.path.join(save_path, '{}.png'.format(captcha_text))
+    captcha_save_path = os.path.join(save_path, '{}_0.png'.format(captcha_text))
     i = 0
     while True:
         i += 1
@@ -112,3 +111,8 @@ for font in FONTS:
     captcha_generator('0123456789', font_set=font, save_path='./digits_img', 
     size=(350, 80), captcha_len=10,style=((255, 0, 0), (255, 255, 255), 40, False, (32,127))
     )
+
+# f = '/System/Library/Fonts/NotoSansArmenian.ttc'
+# captcha_generator('0123456789', font_set=f, save_path='./', 
+#     size=(350, 80), captcha_len=10,style=((255, 0, 0), (255, 255, 255), 40, False, (32,127))
+#     )
