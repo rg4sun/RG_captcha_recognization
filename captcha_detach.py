@@ -91,7 +91,7 @@ def captcha_character_detach(captcha_img_path, characters_save_path='./', captch
         character_img = img_gray[y - margin:y + height + margin, x - margin:x + width + margin]
         if not os.path.exists(characters_save_path): # 如果要保存的路径不存在就创建该路径目录
             os.makedirs(characters_save_path)
-        character_path = os.path.join(characters_save_path, '{}.png'.format(character_text))
+        character_path = os.path.join(characters_save_path, '{}_0.png'.format(character_text))
         i = 0
         while True:
             i += 1

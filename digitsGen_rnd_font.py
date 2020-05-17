@@ -11,7 +11,7 @@ import string
 ROOT_DIR = os.getcwd()
 DATA_DIR = os.path.join(ROOT_DIR, 'fonts_data')
 # FONTS = [ font for font in os.listdir('/System/Library/Fonts/')]
-FONT = [r'/System/Library/Fonts/Avenir Next.ttc', 
+FONTS = [r'/System/Library/Fonts/Avenir Next.ttc', 
         '/System/Library/Fonts/NewYork.ttf',
         '/System/Library/Fonts/NewYorkItalic.ttf',
         '/System/Library/Fonts/SFCompactDisplay.ttf',

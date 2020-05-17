@@ -92,7 +92,7 @@ def captcha_character_detach(captcha_img_path, characters_save_path='./', captch
         character_img = img_gray[y - margin:y + height + margin, x - margin:x + width + margin]
         if not os.path.exists(characters_save_path): # 如果要保存的路径不存在就创建该路径目录
             os.makedirs(characters_save_path)
-        character_path = os.path.join(characters_save_path, '{}.png'.format(character_text))
+        character_path = os.path.join(characters_save_path, '{}_0.png'.format(character_text))
         i = 0
         while True:
             i += 1
@@ -107,7 +107,8 @@ def captcha_character_detach(captcha_img_path, characters_save_path='./', captch
 
 
 captchas = [ os.path.join(DATA_DTR, img_name) for img_name in os.listdir(DATA_DTR)] 
-captchas.remove(os.path.join(DATA_DTR, '.DS_Store')) # mac会有这个隐藏文件，去除
+if os.path.exists(os.path.join(DATA_DTR, '.DS_Store')):
+    captchas.remove(os.path.join(DATA_DTR, '.DS_Store')) # mac会有这个隐藏文件，去除
 captchas.sort() # 升序，注意不能 listA = listA.sort(), sort没有返回值
 for captcha in captchas:
     captcha_character_detach(captcha, CHARACTER_DIR, captcha_len=10)
