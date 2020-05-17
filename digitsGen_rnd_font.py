@@ -10,8 +10,35 @@ import string
 
 ROOT_DIR = os.getcwd()
 DATA_DIR = os.path.join(ROOT_DIR, 'fonts_data')
-FONT = [r'/System/Library/Fonts/Avenir Next.ttc'] 
-FONTS = [ font for font in os.listdir('/System/Library/Fonts/')]
+# FONTS = [ font for font in os.listdir('/System/Library/Fonts/')]
+FONT = [r'/System/Library/Fonts/Avenir Next.ttc', 
+        '/System/Library/Fonts/NewYork.ttf',
+        '/System/Library/Fonts/NewYorkItalic.ttf',
+        '/System/Library/Fonts/SFCompactDisplay.ttf',
+        '/System/Library/Fonts/SFCompactTextItalic.ttf',
+        '/System/Library/Fonts/Symbol.ttf',
+        '/System/Library/Fonts/AquaKana.ttc',
+        '/System/Library/Fonts/ArialHB.ttc',
+        r'/System/Library/Fonts/Avenir Next Condensed.ttc',
+        '/System/Library/Fonts/Avenir.ttc',
+        '/System/Library/Fonts/Kohinoor.ttc',
+        '/System/Library/Fonts/Menlo.ttc',
+        '/System/Library/Fonts/Noteworthy.ttc',
+        '/System/Library/Fonts/NotoSansArmenian.ttc',
+        '/System/Library/Fonts/Thonburi.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W0.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W1.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W2.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W3.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W4.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W5.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W6.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W7.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W8.ttc',
+        r'/System/Library/Fonts/ヒラギノ角ゴシック W9.ttc',
+        r'/System/Library/Fonts/ヒラギノ明朝 ProN.ttc',
+        r'/System/Library/Fonts/ヒラギノ丸ゴ ProN W4.ttc',
+] 
 
 def background_rnd_fill(background_img, fill_range=(32,127)):
     '''
