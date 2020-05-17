@@ -103,7 +103,7 @@ def captcha_generator(character_set:str, font_set=None, save_path='./', size=(15
         else: # 不存在重名路径，则跳出
             break
     captcha_img.save(captcha_save_path, 'png')
-    print('{}\n{}'.format(captcha_save_path, font_set))
+    # print('{}\n{}'.format(captcha_save_path, font_set))
     print('Captcha {} generated!'.format(captcha_text))
     return captcha_text
 
