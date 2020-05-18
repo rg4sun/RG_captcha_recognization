@@ -23,12 +23,12 @@ def bgr2rgb(img):
     return img[:, :, ::-1]
 
 def genNeedImg(img_path, img_type='binary', binary_therhold=127, 
-               binary_revese=False, size=None, save=False, path='./'):
+               binary_reverse=False, size=None, save=False, path='./'):
     '''
     用于生成指定大小的灰度图或二值图, img_path为图像路径
     type为标志转换类型，默认为binary，可选的值为binary或gray
     binary_therhold为二值图划分阈值，默认127（即大于127的像素设置为255，否则置0）
-    binary_revese默认为False，True时黑白颠倒（即大于127的像素设置为0，否则置255）
+    binary_reverse默认为False，True时黑白颠倒（即大于127的像素设置为0，否则置255）
     size为tuple类型，用于指定生成图像的尺寸, 如：(512,512)，默认为None表示输出原图像尺寸
     save为保存标志，默认为False，为true时将生成的图保存到path(默认为当前文件夹)
     '''
@@ -47,7 +47,7 @@ def genNeedImg(img_path, img_type='binary', binary_therhold=127,
             print('Gray image generated!')
             return img_gray
     else: # 生成二值图
-        if binary_revese:
+        if binary_reverse:
             ret, img_binary = cv.threshold(img_gray,binary_therhold,255,cv.THRESH_BINARY_INV) #反二进制阈值化
         else:
             ret, img_binary = cv.threshold(img_gray,binary_therhold,255,cv.THRESH_BINARY)# 二进制阈值化
@@ -64,7 +64,7 @@ def captcha_character_detach(captcha_img_path, characters_save_path='./', captch
     captcha_img_basename = os.path.basename(captcha_img_path) # 从路径中提取带后缀文件名，如 '0415.png'
     captcha_text = os.path.splitext(captcha_img_basename)[0] # ['0415', 'png']
     img_gray = cv.imread(captcha_img_path, cv.IMREAD_GRAYSCALE) # 灰度图读入
-    img_binary = genNeedImg(captcha_img_path, img_type='binary', binary_therhold=127, binary_revese=True) # 直接调用genNeedImg生成二值图
+    img_binary = genNeedImg(captcha_img_path, img_type='binary', binary_therhold=127, binary_reverse=True) # 直接调用genNeedImg生成二值图
     contours, hierarchy = cv.findContours(img_binary, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE) # 划分字符轮廓
     # 由于直接划分的轮廓太多了（我换了字体后好像不会划分很多），这里考虑记录每个每个轮廓的数据，然后取 wxh （长x宽，即面积）的top4
     boundings = [cv.boundingRect(contour) for contour in contours] # 获取每个轮廓的信息，(x,y,width,height) x,y为轮廓最左上角坐标

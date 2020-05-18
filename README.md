@@ -19,3 +19,14 @@
 + `character_old`：由调整了字体后，用captcha库生成的验证码detach出的各个字符样本，由于生成的验证码有倾斜和连体，故这里提取出来会有 标签不对、同意字符样本中出现多个连体字符等错误样本，所以为了简化分割和识别难度，我才弃用captcha库，自己写验证码生成代码
 + `imgaes`：老师给的几个验证码图片和我自己增加的一些验证码
 
+###  快速上手
+
+由于我写这个工程文件是不断整理思路、不断调试的过程，因此产生了很多文件。有些文件可能对工程本身不是很重要，但是记录了我一个学习和思考的过程，因此，我并没有删除这些文件。考虑到未来某一天可能有人会查阅此工程（maybe吧，希望这个工程文件能对查阅者起到一定帮助），为了便于查阅者快速上手，这里简要讲一下，这些文件的阅读顺序：
+
++ 所有的pre文件都比较乱，可以直接阅读不带pre的同名文件
++ Step1: 用 [digitsGen_rnd_font.py](./digitsGen_rnd_font.py) or [digitsGen_rnd_font.ipynb](./digitsGen_rnd_font.ipynb) 生成不同字体的数字序列样本（0-9，一串字符），所有的数字序列图片保存在 digits_img 文件夹
++ Step2: 用 [digits_detach.py](./digits_detach.py) 遍历 digits_img文件夹，将所有数字序列图分割提取出每个单个字符，以此生成训练集，保存在digits_data文件夹
++ Step3: 用 [captcha_dataGen_RG.py](./captcha_dataGen_RG.py) 生成四位数的验证码集（待识别的），保存在captcha_test_data文件夹，用作测试集
++ Step4: 用 [captcha_detach.py](./captcha_detach.py) 对step3中的每个验证码进行单个字符的分割，此分割其实对识别验证码不是必须的，只是下一步的文件中对单个字符的识别率计算有用
++ Step5: 用 [captcha_recognization.ipynb](./captcha_recognization.ipynb) 对Step3中的验证码进行识别
+
