@@ -51,3 +51,5 @@ def RG_kNN_classifier(feature_set_train, label_set_train, feature_set_test, k=3)
     return label_set_train[list(topK)] # 返回最接近的k个预测值
 
 print(RG_kNN_classifier(X_train,y_train,X_test, k=3))
+
+cv.findContours()
